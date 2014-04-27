@@ -41,7 +41,7 @@ Template.circularProgress.rendered = function() {
         .attr('fill', 'none')
         .attr('stroke-width', 1)
         .attr('stroke','#aaa')
-        .attr('class',outerClass);
+        .attr('class',borderClass);
 
     // same as above, create the arc without the end angle, since we don't know it yet
 
@@ -54,7 +54,7 @@ Template.circularProgress.rendered = function() {
                         .datum({endAngle: 0*(pi/180)})
                         .attr('d', arc)
                         .attr('fill', 'green')
-                        .attr('class', innerClass)
+                        .attr('class', progressClass)
                         .attr('transform', 'translate('+center+')');
 
     // function to enable moving the end angle back and forth as needed, using the same arc
