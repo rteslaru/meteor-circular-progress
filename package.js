@@ -3,7 +3,7 @@ Package.describe({
 });
 
 Package.on_use(function (api) {
-    api.use(['templating'], 'client');
-    api.add_files(['lib/circular_progress.html', 'lib/circular_progress.js'], 'client');
+    api.use(['templating', 'd3'], 'client');
+    api.add_files(['circular_progress.html', 'circular_progress.js'], 'client');
 });
 
