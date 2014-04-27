@@ -19,6 +19,13 @@ _circular-progress_ is an SVG circular progress bar written specifically for Met
 See it in action at http://circular-progress.meteor.com
 
 ## Getting Started
+
+Install _circular-progress_ via meteorite:
+
+```shell
+mrt add circular-progress
+```
+
 You interact with circular-progress via session variables, so if you don't care much about styling, animations or transitions, here's a quick way to start:
 
 Instruction                                         | Outcome
