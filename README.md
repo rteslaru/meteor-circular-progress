@@ -1,2 +1,2 @@
-meteor-circular-progress
+circular-progress
 ========================
