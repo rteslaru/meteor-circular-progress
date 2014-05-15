@@ -14,6 +14,7 @@ Template.circularProgress.rendered = function() {
     var borderClass = this.data.borderClass || 'progress-border';
     var progressClass = this.data.progressClass || 'progress-circular-bar';
     var textClass = this.data.textClass || 'progress-text';
+    var containerId = this.data.containerId || 'svg-progress-container';
     var tweenDuration = this.data.tweenDuration || 750;
     
     // internal variables
@@ -23,12 +24,12 @@ Template.circularProgress.rendered = function() {
     var outerRadius = circleRadius - spacer;
     var innerRadius = outerRadius - arcWidth;
     var center = midPoint.toString()+','+midPoint.toString();
-    var svg = d3.select('#svg-progress-container').append('svg')
+    var svg = d3.select('#'+containerId).append('svg')
                 .attr('width', canvasSize)
                 .attr('height', canvasSize);
 
-    var lineHeight = $('#svg-progress-container').css('line-height').split('px')[0];
-    var fontSize = $('#svg-progress-container').css('font-size').split('px')[0];
+    var lineHeight = $('#'+containerId).css('line-height').split('px')[0];
+    var fontSize = $('#'+containerId).css('font-size').split('px')[0];
 
     var maxCharCount = Math.floor((2*innerRadius) / (fontSize / 2) - textPadding);
 
@@ -94,7 +95,7 @@ Template.circularProgress.rendered = function() {
         var text = Session.get(sessionTextKey) || '';
         var wrapText = wordWrap(text, maxCharCount);
         var startPoint = midPoint - (fontSize * wrapText.length / 2);
-        d3.selectAll('#svg-progress-container text').remove();
+        d3.selectAll('#'+containerId).remove();
         for (var i = 0; i < wrapText.length; i++) {
             svg.append('text')
                 .attr('x', midPoint)

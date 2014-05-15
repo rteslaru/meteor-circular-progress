@@ -8,6 +8,7 @@ A reactive, flexible, SVG-based circular progress bar for Meteor
  - [Declaring Arguments](#declaring-arguments)
  - [Customizing the Progress Bar](#customizing-the-progress-bar)
  - [Using the Reactive Data Sources](#using-the-reactive-data-sources)
+ - [Using Multiple Instances on One Page](#using-multiple-instances-on-one-page)
 - [Options](#options)
 - [Issues](#issues)
 - [Contribute](#contribute)
@@ -120,6 +121,16 @@ Then, you can control _circular-progress_ via these keys:
 Session.set('my-value-key', 95);
 Session.set('my-text-key', 'Almost there!');
 ```
+### Using Multiple Instances on One Page
+You can use more than one progress bar per page, provided you give each a different ID. You probably want to set different session variables too. 
+
+Here's an example how to initialize three circular-progress templates on the same page:
+```
+{{> circularProgress containerId="svg-container-1" sessionValueKey="value-key-1" sessionTextKey="text-key-1"}}
+{{> circularProgress containerId="svg-container-2" sessionValueKey="value-key-2" sessionTextKey="text-key-2"}}
+{{> circularProgress containerId="svg-container-3" sessionValueKey="value-key-3" sessionTextKey="text-key-3"}}
+```
+
 ## Options
 Parameter       | Description   | Default Value
 ---------       | -------   | -----------:
@@ -131,6 +142,7 @@ arcWidth        | Controls the width of the progress bar, in **pixels** | `10`
 tweenDuration   | Sets the duration of the transition between two points on the progress bar, in **milliseconds** | `750`
 sessionValueKey | Sets the session variable **string** used to monitor for progress value changes | `'progressPercent'`
 sessionTextKey  | Sets the session variable **string** used to monitor for text to display | `'progressText'`
+containerId     | Sets the id of the containing div | `'svg-progress-container'`
 outerDivClass   | Applies the **string** as a CSS class to the _outer_ `<div>` container | `null`    
 innerDivCLass   | Applies the **string** as a CSS class to the _inner_ `<div>` container | `null`
 borderClass     | Applies the **string** as a CSS class to the border outside the progress bar| `'progress-border'`
