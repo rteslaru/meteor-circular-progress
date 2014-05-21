@@ -1,36 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="circular-progress : A reactive, flexible, SVG-based circular progress bar for Meteor" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>circular-progress by rteslaru</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>circular-progress</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">circular-progress</h1>
+        <p class="header">A reactive, flexible, SVG-based circular progress bar for Meteor</p>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/rteslaru/meteor-circular-progress">View on GitHub</a>
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/rteslaru/meteor-circular-progress/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/rteslaru/meteor-circular-progress/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/rteslaru/meteor-circular-progress">View On GitHub</a></li>
+        </ul>
 
-          <h1 id="project_title">circular-progress</h1>
-          <h2 id="project_tagline">A reactive, flexible, SVG-based circular progress bar for Meteor</h2>
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/rteslaru">rteslaru</a></p>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/rteslaru/meteor-circular-progress/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/rteslaru/meteor-circular-progress/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+      </header>
+      <section>
         <h1>
 <a name="circular-progress" class="anchor" href="#circular-progress"><span class="octicon octicon-link"></span></a>circular-progress</h1>
 
@@ -47,6 +46,7 @@
 <li><a href="#declaring-arguments">Declaring Arguments</a></li>
 <li><a href="#customizing-the-progress-bar">Customizing the Progress Bar</a></li>
 <li><a href="#using-the-reactive-data-sources">Using the Reactive Data Sources</a></li>
+<li><a href="#using-multiple-instances-on-one-page">Using Multiple Instances on One Page</a></li>
 </ul>
 </li>
 <li><a href="#options">Options</a></li>
@@ -222,6 +222,18 @@
 <span class="nx">Session</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'my-text-key'</span><span class="p">,</span> <span class="s1">'Almost there!'</span><span class="p">);</span>
 </pre></div>
 
+<h3>
+<a name="using-multiple-instances-on-one-page" class="anchor" href="#using-multiple-instances-on-one-page"><span class="octicon octicon-link"></span></a>Using Multiple Instances on One Page</h3>
+
+<p>You can use more than one progress bar per page, provided you give each a different ID. You probably want to set different session variables too. </p>
+
+<p>Here's an example how to initialize three circular-progress templates on the same page:</p>
+
+<pre><code>{{&gt; circularProgress containerId="svg-container-1" sessionValueKey="value-key-1" sessionTextKey="text-key-1"}}
+{{&gt; circularProgress containerId="svg-container-2" sessionValueKey="value-key-2" sessionTextKey="text-key-2"}}
+{{&gt; circularProgress containerId="svg-container-3" sessionValueKey="value-key-3" sessionTextKey="text-key-3"}}
+</code></pre>
+
 <h2>
 <a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h2>
 
@@ -279,6 +291,11 @@
 <td align="right"><code>'progressText'</code></td>
 </tr>
 <tr>
+<td>containerId</td>
+<td>Sets the id of the containing div</td>
+<td align="right"><code>'svg-progress-container'</code></td>
+</tr>
+<tr>
 <td>outerDivClass</td>
 <td>Applies the <strong>string</strong> as a CSS class to the <em>outer</em> <code>&lt;div&gt;</code> container</td>
 <td align="right"><code>null</code></td>
@@ -307,7 +324,7 @@
 </table><h2>
 <a name="issues" class="anchor" href="#issues"><span class="octicon octicon-link"></span></a>Issues</h2>
 
-<p><em>circular-progress</em> was tested with Meteor up to 0.8.0.1. If you encounter any issues, please open a ticket at <a href="https://github.com/rteslaru/meteor-circular-progress/issues">https://github.com/rteslaru/meteor-circular-progress/issues</a> </p>
+<p><em>circular-progress</em> was tested with Meteor up to 0.8.1.2. If you encounter any issues, please open a ticket at <a href="https://github.com/rteslaru/meteor-circular-progress/issues">https://github.com/rteslaru/meteor-circular-progress/issues</a> </p>
 
 <h2>
 <a name="contribute" class="anchor" href="#contribute"><span class="octicon octicon-link"></span></a>Contribute</h2>
@@ -319,17 +336,12 @@
 
 <p>Released under the MIT license. </p>
       </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">circular-progress maintained by <a href="https://github.com/rteslaru">rteslaru</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
-
-              <script type="text/javascript">
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		          <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -339,7 +351,6 @@
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
