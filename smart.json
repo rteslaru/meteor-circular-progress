@@ -3,7 +3,7 @@
   "description": "A reactive, flexible, SVG-based circular progress bar for Meteor",
   "homepage": "http://rteslaru.github.io/meteor-circular-progress",
   "author": "Razvan Teslaru <razvan@meteorsthlm.com>",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "git": "https://github.com/rteslaru/meteor-circular-progress.git",
   "packages": {
     "d3": {}
