@@ -1,3 +1,7 @@
+Template.circularProgress.progressContainer = function() {
+    return this.containerId || 'svg-progress-container'
+};
+
 Template.circularProgress.rendered = function() {
 
     // parametrizable options
@@ -28,7 +32,9 @@ Template.circularProgress.rendered = function() {
                 .attr('width', canvasSize)
                 .attr('height', canvasSize);
 
-    var lineHeight = $('#'+containerId).css('line-height').split('px')[0];
+    // ugly lineHeight bandaid -- must revisit
+
+    var lineHeight = $('#'+containerId).css('line-height').split('px')[0] === 'normal' ? 20 : $('#'+containerId).css('line-height').split('px')[0];
     var fontSize = $('#'+containerId).css('font-size').split('px')[0];
 
     var maxCharCount = Math.floor((2*innerRadius) / (fontSize / 2) - textPadding);
@@ -95,7 +101,7 @@ Template.circularProgress.rendered = function() {
         var text = Session.get(sessionTextKey) || '';
         var wrapText = wordWrap(text, maxCharCount);
         var startPoint = midPoint - (fontSize * wrapText.length / 2);
-        d3.selectAll('#'+containerId).remove();
+        d3.selectAll('#'+containerId+' text').remove();
         for (var i = 0; i < wrapText.length; i++) {
             svg.append('text')
                 .attr('x', midPoint)
