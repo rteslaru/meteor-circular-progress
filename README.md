@@ -149,7 +149,7 @@ borderClass     | Applies the **string** as a CSS class to the border outside th
 progressClass   | Applies the **string** as a CSS class to the progress bar| `'progress-circular-bar'`
 textClass       | Applies the **string** as a CSS class to the text inside the progress bar| `'progress-text'`
 ## Issues
-_circular-progress_ was tested with Meteor up to 0.8.0.1. If you encounter any issues, please open a ticket at https://github.com/rteslaru/meteor-circular-progress/issues 
+_circular-progress_ was tested with Meteor up to 0.8.1.2. If you encounter any issues, please open a ticket at https://github.com/rteslaru/meteor-circular-progress/issues 
 ## Contribute
 Pull requests are more than welcome! 
 ## License
