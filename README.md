@@ -5,10 +5,10 @@ A reactive, flexible, SVG-based circular progress bar for Meteor
 **Table of Contents**
 - [Overview](#overview)
 - [Getting Started](#getting-started)
- - [Declaring Arguments](#declaring-arguments)
- - [Customizing the Progress Bar](#customizing-the-progress-bar)
- - [Using the Reactive Data Sources](#using-the-reactive-data-sources)
- - [Using Multiple Instances on One Page](#using-multiple-instances-on-one-page)
+- [Declaring Arguments](#declaring-arguments)
+- [Customizing the Progress Bar](#customizing-the-progress-bar)
+- [Using the Reactive Data Sources](#using-the-reactive-data-sources)
+- [Using Multiple Instances on One Page](#using-multiple-instances-on-one-page)
 - [Options](#options)
 - [Issues](#issues)
 - [Contribute](#contribute)
@@ -36,7 +36,7 @@ Instruction                                         | Outcome
 
 Note that  `progressPercent` takes values from 0 - 100. You can, of course, pass `0.5` but that would be interpreted as 0.5%, not 50%. 
 
-### Declaring Arguments
+## Declaring Arguments
 
 Since `circularProgress` is a regular template, you can pass arguments to it like you normally do. 
 
@@ -63,9 +63,9 @@ Template.mainTemplate.circularOptions = function() {
     }
 }
 ```
-### Customizing the Progress Bar
+## Customizing the Progress Bar
 
-#### Layout
+### Layout
 The HTML layout of the progress bar is designed to give you maximum flexibility on how you choose to use it. The SVG itself is nested within two `<div>` tags, and you can set a CSS class on each. For example:
 
 `{{> circularProgress outerDivClass="outer-div" innerDivClass="inner-div"}}`
@@ -82,7 +82,7 @@ will render
 
 That should allow you to do most anything you want layout-wise, including, for example, centering via outer `left: 50%` and inner `left: -50%`.
 
-#### Aspect
+### Aspect
 circular-progress is made of three visual components: an _outer border_, the _progress bar_ and any _optional text_. You can apply your own CSS class to each of these elements, as follows:
 
 Component       | Applying a custom CSS Class
@@ -104,7 +104,7 @@ tweenDuration   | Sets the duration of the transition between two points on the 
 
 Check out the [Options](#options) section for details and default values of these parameters.
 
-### Using the Reactive Data Sources
+## Using the Reactive Data Sources
 You can control the value of the progress bar and the text inside it via `Session` variables. By default, _circular-progress_ looks for `'progressPercent'` and `'progressText'`, but you can customize what `Session` keys it uses with the following options:
 
 Parameter       | Description
@@ -121,7 +121,7 @@ Then, you can control _circular-progress_ via these keys:
 Session.set('my-value-key', 95);
 Session.set('my-text-key', 'Almost there!');
 ```
-### Using Multiple Instances on One Page
+## Using Multiple Instances on One Page
 You can use more than one progress bar per page, provided you give each a different ID. You probably want to set different session variables too. 
 
 Here's an example how to initialize three circular-progress templates on the same page:
