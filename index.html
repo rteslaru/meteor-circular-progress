@@ -1,37 +1,26 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>circular-progress by rteslaru</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1 class="header">circular-progress</h1>
-        <p class="header">A reactive, flexible, SVG-based circular progress bar for Meteor</p>
+    <section class="page-header">
+      <h1 class="project-name">circular-progress</h1>
+      <h2 class="project-tagline">A reactive, flexible, SVG-based circular progress bar for Meteor</h2>
+      <a href="https://github.com/rteslaru/meteor-circular-progress" class="btn">View on GitHub</a>
+      <a href="https://github.com/rteslaru/meteor-circular-progress/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/rteslaru/meteor-circular-progress/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-        <ul>
-          <li class="download"><a class="buttons" href="https://github.com/rteslaru/meteor-circular-progress/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/rteslaru/meteor-circular-progress/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/rteslaru/meteor-circular-progress">View On GitHub</a></li>
-        </ul>
-
-        <p class="header">This project is maintained by <a class="header name" href="https://github.com/rteslaru">rteslaru</a></p>
-
-
-      </header>
-      <section>
-        <h1>
-<a name="circular-progress" class="anchor" href="#circular-progress"><span class="octicon octicon-link"></span></a>circular-progress</h1>
+    <section class="main-content">
+      <h1>
+<a id="circular-progress" class="anchor" href="#circular-progress" aria-hidden="true"><span class="octicon octicon-link"></span></a>circular-progress</h1>
 
 <p>A reactive, flexible, SVG-based circular progress bar for Meteor</p>
 
@@ -53,28 +42,31 @@
 <li><a href="#issues">Issues</a></li>
 <li><a href="#contribute">Contribute</a></li>
 <li><a href="#license">License</a></li>
-</ul><h2>
-<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h2>
+</ul>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
 
 <p><em>circular-progress</em> is an SVG circular progress bar written specifically for Meteor. Besides the progress bar itself, you can also display text in the middle of the circle. It's meant to be usable out of the box; just drop <code>{{&gt; circularProgress}}</code> anywhere in your templates and you're good to go!</p>
 
 <p>See it in action at <a href="http://circular-progress.meteor.com">http://circular-progress.meteor.com</a></p>
 
 <h2>
-<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
 
 <p>Install <em>circular-progress</em> via meteorite:</p>
 
-<pre lang="shell"><code>mrt add circular-progress
-</code></pre>
+<div class="highlight highlight-shell"><pre>mrt add circular-progress</pre></div>
 
 <p>You interact with circular-progress via session variables, so if you don't care much about styling, animations or transitions, here's a quick way to start:</p>
 
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th>Instruction</th>
 <th>Outcome</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td><code>Session.set('progressPercent', 30)</code></td>
@@ -85,10 +77,12 @@
 <td>Sets the text inside the circle</td>
 </tr>
 </tbody>
-</table><p>Note that  <code>progressPercent</code> takes values from 0 - 100. You can, of course, pass <code>0.5</code> but that would be interpreted as 0.5%, not 50%. </p>
+</table>
+
+<p>Note that  <code>progressPercent</code> takes values from 0 - 100. You can, of course, pass <code>0.5</code> but that would be interpreted as 0.5%, not 50%. </p>
 
 <h3>
-<a name="declaring-arguments" class="anchor" href="#declaring-arguments"><span class="octicon octicon-link"></span></a>Declaring Arguments</h3>
+<a id="declaring-arguments" class="anchor" href="#declaring-arguments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Declaring Arguments</h3>
 
 <p>Since <code>circularProgress</code> is a regular template, you can pass arguments to it like you normally do. </p>
 
@@ -105,21 +99,20 @@
 &lt;/template&gt;
 </code></pre>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">Template</span><span class="p">.</span><span class="nx">mainTemplate</span><span class="p">.</span><span class="nx">circularOptions</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s1">'canvasSize'</span><span class="o">:</span> <span class="mi">250</span><span class="p">,</span>
-        <span class="s1">'arcWidth'</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-        <span class="s1">'sessionValueKey'</span><span class="o">:</span> <span class="s1">'progressValue'</span><span class="p">,</span>
-        <span class="s1">'tweenDuration'</span><span class="o">:</span> <span class="mi">300</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre><span class="pl-c1">Template.mainTemplate</span>.<span class="pl-en">circularOptions</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+    <span class="pl-k">return</span> {
+        <span class="pl-s"><span class="pl-pds">'</span>canvasSize<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-c1">250</span>,
+        <span class="pl-s"><span class="pl-pds">'</span>arcWidth<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-c1">10</span>,
+        <span class="pl-s"><span class="pl-pds">'</span>sessionValueKey<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>progressValue<span class="pl-pds">'</span></span>,
+        <span class="pl-s"><span class="pl-pds">'</span>tweenDuration<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-c1">300</span>
+    }
+}</pre></div>
 
 <h3>
-<a name="customizing-the-progress-bar" class="anchor" href="#customizing-the-progress-bar"><span class="octicon octicon-link"></span></a>Customizing the Progress Bar</h3>
+<a id="customizing-the-progress-bar" class="anchor" href="#customizing-the-progress-bar" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customizing the Progress Bar</h3>
 
 <h4>
-<a name="layout" class="anchor" href="#layout"><span class="octicon octicon-link"></span></a>Layout</h4>
+<a id="layout" class="anchor" href="#layout" aria-hidden="true"><span class="octicon octicon-link"></span></a>Layout</h4>
 
 <p>The HTML layout of the progress bar is designed to give you maximum flexibility on how you choose to use it. The SVG itself is nested within two <code>&lt;div&gt;</code> tags, and you can set a CSS class on each. For example:</p>
 
@@ -127,25 +120,26 @@
 
 <p>will render</p>
 
-<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"outer-div"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"svg-progress-container"</span> <span class="na">class=</span><span class="s">"inner-div"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;svg&gt;</span>...<span class="nt">&lt;/svg&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</pre></div>
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>outer-div<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>svg-progress-container<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>inner-div<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">svg</span>&gt;...&lt;/<span class="pl-ent">svg</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
 
 <p>That should allow you to do most anything you want layout-wise, including, for example, centering via outer <code>left: 50%</code> and inner <code>left: -50%</code>.</p>
 
 <h4>
-<a name="aspect" class="anchor" href="#aspect"><span class="octicon octicon-link"></span></a>Aspect</h4>
+<a id="aspect" class="anchor" href="#aspect" aria-hidden="true"><span class="octicon octicon-link"></span></a>Aspect</h4>
 
 <p>circular-progress is made of three visual components: an <em>outer border</em>, the <em>progress bar</em> and any <em>optional text</em>. You can apply your own CSS class to each of these elements, as follows:</p>
 
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th>Component</th>
 <th>Applying a custom CSS Class</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td>Outer Border</td>
@@ -160,13 +154,17 @@
 <td><code>textClass="progress-text"</code></td>
 </tr>
 </tbody>
-</table><p>The <em>radius</em>, <em>width</em> and other parameters of the progress bar are set as follows:</p>
+</table>
+
+<p>The <em>radius</em>, <em>width</em> and other parameters of the progress bar are set as follows:</p>
 
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th>Parameter</th>
 <th>Description</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td>canvasSize</td>
@@ -189,18 +187,22 @@
 <td>Sets the duration of the transition between two points on the progress bar, in milliseconds</td>
 </tr>
 </tbody>
-</table><p>Check out the <a href="#options">Options</a> section for details and default values of these parameters.</p>
+</table>
+
+<p>Check out the <a href="#options">Options</a> section for details and default values of these parameters.</p>
 
 <h3>
-<a name="using-the-reactive-data-sources" class="anchor" href="#using-the-reactive-data-sources"><span class="octicon octicon-link"></span></a>Using the Reactive Data Sources</h3>
+<a id="using-the-reactive-data-sources" class="anchor" href="#using-the-reactive-data-sources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the Reactive Data Sources</h3>
 
 <p>You can control the value of the progress bar and the text inside it via <code>Session</code> variables. By default, <em>circular-progress</em> looks for <code>'progressPercent'</code> and <code>'progressText'</code>, but you can customize what <code>Session</code> keys it uses with the following options:</p>
 
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th>Parameter</th>
 <th>Description</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td>sessionValueKey</td>
@@ -211,19 +213,20 @@
 <td>Sets the key used to monitor for text to display</td>
 </tr>
 </tbody>
-</table><p>For example, you can set the keys:</p>
+</table>
+
+<p>For example, you can set the keys:</p>
 
 <pre><code>{{&gt; circularProgress sessionValueKey="my-value-key" sessionTextKey="my-text-key"}}
 </code></pre>
 
 <p>Then, you can control <em>circular-progress</em> via these keys:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">Session</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'my-value-key'</span><span class="p">,</span> <span class="mi">95</span><span class="p">);</span>
-<span class="nx">Session</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'my-text-key'</span><span class="p">,</span> <span class="s1">'Almost there!'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>Session.set(<span class="pl-s"><span class="pl-pds">'</span>my-value-key<span class="pl-pds">'</span></span>, <span class="pl-c1">95</span>);
+Session.set(<span class="pl-s"><span class="pl-pds">'</span>my-text-key<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Almost there!<span class="pl-pds">'</span></span>);</pre></div>
 
 <h3>
-<a name="using-multiple-instances-on-one-page" class="anchor" href="#using-multiple-instances-on-one-page"><span class="octicon octicon-link"></span></a>Using Multiple Instances on One Page</h3>
+<a id="using-multiple-instances-on-one-page" class="anchor" href="#using-multiple-instances-on-one-page" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Multiple Instances on One Page</h3>
 
 <p>You can use more than one progress bar per page, provided you give each a different ID. You probably want to set different session variables too. </p>
 
@@ -235,14 +238,16 @@
 </code></pre>
 
 <h2>
-<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h2>
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h2>
 
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th>Parameter</th>
 <th>Description</th>
 <th align="right">Default Value</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td>canvasSize</td>
@@ -321,27 +326,32 @@
 <td align="right"><code>'progress-text'</code></td>
 </tr>
 </tbody>
-</table><h2>
-<a name="issues" class="anchor" href="#issues"><span class="octicon octicon-link"></span></a>Issues</h2>
+</table>
+
+<h2>
+<a id="issues" class="anchor" href="#issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues</h2>
 
 <p><em>circular-progress</em> was tested with Meteor up to 0.8.1.2. If you encounter any issues, please open a ticket at <a href="https://github.com/rteslaru/meteor-circular-progress/issues">https://github.com/rteslaru/meteor-circular-progress/issues</a> </p>
 
 <h2>
-<a name="contribute" class="anchor" href="#contribute"><span class="octicon octicon-link"></span></a>Contribute</h2>
+<a id="contribute" class="anchor" href="#contribute" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contribute</h2>
 
 <p>Pull requests are more than welcome! </p>
 
 <h2>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p>Released under the MIT license. </p>
-      </section>
-      <footer>
-        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/rteslaru/meteor-circular-progress">circular-progress</a> is maintained by <a href="https://github.com/rteslaru">rteslaru</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		          <script type="text/javascript">
+
+    </section>
+
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -354,3 +364,4 @@
 
   </body>
 </html>
+
