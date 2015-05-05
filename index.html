@@ -28,16 +28,11 @@
 
 <ul>
 <li><a href="#overview">Overview</a></li>
-<li>
-<a href="#getting-started">Getting Started</a>
-
-<ul>
+<li><a href="#getting-started">Getting Started</a></li>
 <li><a href="#declaring-arguments">Declaring Arguments</a></li>
 <li><a href="#customizing-the-progress-bar">Customizing the Progress Bar</a></li>
 <li><a href="#using-the-reactive-data-sources">Using the Reactive Data Sources</a></li>
 <li><a href="#using-multiple-instances-on-one-page">Using Multiple Instances on One Page</a></li>
-</ul>
-</li>
 <li><a href="#options">Options</a></li>
 <li><a href="#issues">Issues</a></li>
 <li><a href="#contribute">Contribute</a></li>
@@ -81,8 +76,8 @@
 
 <p>Note that  <code>progressPercent</code> takes values from 0 - 100. You can, of course, pass <code>0.5</code> but that would be interpreted as 0.5%, not 50%. </p>
 
-<h3>
-<a id="declaring-arguments" class="anchor" href="#declaring-arguments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Declaring Arguments</h3>
+<h2>
+<a id="declaring-arguments" class="anchor" href="#declaring-arguments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Declaring Arguments</h2>
 
 <p>Since <code>circularProgress</code> is a regular template, you can pass arguments to it like you normally do. </p>
 
@@ -108,11 +103,11 @@
     }
 }</pre></div>
 
-<h3>
-<a id="customizing-the-progress-bar" class="anchor" href="#customizing-the-progress-bar" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customizing the Progress Bar</h3>
+<h2>
+<a id="customizing-the-progress-bar" class="anchor" href="#customizing-the-progress-bar" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customizing the Progress Bar</h2>
 
-<h4>
-<a id="layout" class="anchor" href="#layout" aria-hidden="true"><span class="octicon octicon-link"></span></a>Layout</h4>
+<h3>
+<a id="layout" class="anchor" href="#layout" aria-hidden="true"><span class="octicon octicon-link"></span></a>Layout</h3>
 
 <p>The HTML layout of the progress bar is designed to give you maximum flexibility on how you choose to use it. The SVG itself is nested within two <code>&lt;div&gt;</code> tags, and you can set a CSS class on each. For example:</p>
 
@@ -128,8 +123,8 @@
 
 <p>That should allow you to do most anything you want layout-wise, including, for example, centering via outer <code>left: 50%</code> and inner <code>left: -50%</code>.</p>
 
-<h4>
-<a id="aspect" class="anchor" href="#aspect" aria-hidden="true"><span class="octicon octicon-link"></span></a>Aspect</h4>
+<h3>
+<a id="aspect" class="anchor" href="#aspect" aria-hidden="true"><span class="octicon octicon-link"></span></a>Aspect</h3>
 
 <p>circular-progress is made of three visual components: an <em>outer border</em>, the <em>progress bar</em> and any <em>optional text</em>. You can apply your own CSS class to each of these elements, as follows:</p>
 
@@ -191,8 +186,8 @@
 
 <p>Check out the <a href="#options">Options</a> section for details and default values of these parameters.</p>
 
-<h3>
-<a id="using-the-reactive-data-sources" class="anchor" href="#using-the-reactive-data-sources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the Reactive Data Sources</h3>
+<h2>
+<a id="using-the-reactive-data-sources" class="anchor" href="#using-the-reactive-data-sources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the Reactive Data Sources</h2>
 
 <p>You can control the value of the progress bar and the text inside it via <code>Session</code> variables. By default, <em>circular-progress</em> looks for <code>'progressPercent'</code> and <code>'progressText'</code>, but you can customize what <code>Session</code> keys it uses with the following options:</p>
 
@@ -225,8 +220,8 @@
 <div class="highlight highlight-javascript"><pre>Session.set(<span class="pl-s"><span class="pl-pds">'</span>my-value-key<span class="pl-pds">'</span></span>, <span class="pl-c1">95</span>);
 Session.set(<span class="pl-s"><span class="pl-pds">'</span>my-text-key<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Almost there!<span class="pl-pds">'</span></span>);</pre></div>
 
-<h3>
-<a id="using-multiple-instances-on-one-page" class="anchor" href="#using-multiple-instances-on-one-page" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Multiple Instances on One Page</h3>
+<h2>
+<a id="using-multiple-instances-on-one-page" class="anchor" href="#using-multiple-instances-on-one-page" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Multiple Instances on One Page</h2>
 
 <p>You can use more than one progress bar per page, provided you give each a different ID. You probably want to set different session variables too. </p>
 
